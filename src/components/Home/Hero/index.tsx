@@ -60,7 +60,7 @@ const Hero = () => {
               <span>Next-Gen Engineering Studio</span>
             </div>
 
-            <h1 className='text-midnight_text font-black dark:text-white text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight'>
+            <h1 className='text-midnight_text font-black dark:text-white text-3xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight'>
               Engineering <span className='bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent'>intelligent</span> systems for world-class brands.
             </h1>
 
