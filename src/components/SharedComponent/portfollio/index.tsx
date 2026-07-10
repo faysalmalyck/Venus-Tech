@@ -21,7 +21,7 @@ const Portfolio = () => {
           data-aos='fade-left'
           data-aos-delay='200'
           data-aos-duration='1000'>
-          Explore my portfolio showcase
+          Explore our portfolio showcase
         </h2>
         <div className='pb-14 inline-flex'>
           <p className='premium-copy max-w-2xl'>

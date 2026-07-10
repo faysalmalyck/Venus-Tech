@@ -5,9 +5,8 @@ import Counter from '@/components/Home/Counter'
 import Progresswork from '@/components/Home/WorkProgress';
 import Services from '@/components/Home/Services';
 import Portfolio from '@/components/SharedComponent/portfollio'
-import Testimonial from '@/components/SharedComponent/Testimonial'
-import Blog from '@/components/SharedComponent/Blog'
 import Contactform from '@/components/Home/Contact';
+import VertexEdgePage from '@/components/edge/vertexedge';
 export const metadata: Metadata = {
   title: {
     absolute: "Vertex | Digital Solutions Agency",
@@ -22,10 +21,9 @@ export default function Home() {
       <Hero />
       <Counter isColorMode={false} />
       <Progresswork isColorMode={false} />
+
       <Services />
       <Portfolio />
-      <Testimonial />
-      <Blog />
       <Contactform />
     </main>
   )
