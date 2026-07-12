@@ -56,9 +56,9 @@ export default function FeaturesSection() {
     <div className="w-full max-w-6xl mx-auto">
       {/* Header Layout Container */}
       <div className="text-center mb-12 max-w-3xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight mb-4">
-          Why Leading Teams Trust Our Code
-        </h2>
+        <h2 className="mb-4 text-3xl font-black tracking-tight text-slate-900 dark:text-white md:text-4xl">
+  Why Leading Teams Trust Our Code
+</h2>
         <p className="text-slate-450 text-base md:text-lg leading-relaxed text-slate-400">
           We combine transparent agile delivery loops with production-grade engineering principles to launch high-performance platforms that capture market value.
         </p>
