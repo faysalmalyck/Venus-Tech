@@ -50,8 +50,9 @@ export default function SoftwareSolutions() {
   ];
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 w-full">
-      <div className="max-w-6xl mx-auto w-full">
+    <section className="relative w-full overflow-hidden bg-section px-4 py-20 dark:bg-darkmode sm:px-6 sm:py-24 lg:px-8">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(139,92,246,0.10),transparent_30rem),radial-gradient(circle_at_88%_40%,rgba(34,211,238,0.08),transparent_26rem)]" />
+      <div className="relative mx-auto w-full max-w-6xl">
         
         {/* Header Section */}
         <div className="mb-16 max-w-3xl" data-aos="fade-up" data-aos-duration="1000">
@@ -59,13 +60,13 @@ export default function SoftwareSolutions() {
               <span className="h-2 w-2 rounded-full bg-success"></span>
               <span>Software Solution</span>
             </div>
-          <h2 className="py-8 text-3xl font-extrabold tracking-tight text-white sm:text-5xl sm:leading-[1.15]">
+          <h2 className="py-8 text-3xl font-extrabold tracking-tight text-midnight_text dark:text-white sm:text-5xl sm:leading-[1.15]">
   Software Solutions built arround your {" "}
   <span className="bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text font-black text-transparent">
     Business.
   </span>
 </h2>
-          <p className="text-slate-400 text-lg leading-relaxed max-w-2xl">
+          <p className="max-w-2xl text-lg leading-relaxed text-secondary dark:text-slate-300">
             We deliver end-to-end software development services designed to solve complex business challenges and support sustainable growth.
           </p>
         </div>
@@ -82,7 +83,7 @@ export default function SoftwareSolutions() {
                 data-aos="fade-up"
                 data-aos-delay={index * 150}
                 data-aos-duration="1000"
-                className="group relative flex flex-col justify-between border border-slate-900 rounded-[2rem] p-8 transition-all duration-500 hover:border-slate-800 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)]"
+                className="glass-card group relative flex min-h-[360px] flex-col justify-between rounded-[2rem] p-8 transition-all duration-500 hover:-translate-y-2 hover:border-primary/25 hover:shadow-[0_30px_80px_-20px_rgba(139,92,246,0.28)]"
               >
                 <div>
                   {/* Top Icon Block */}
@@ -91,7 +92,7 @@ export default function SoftwareSolutions() {
                   </div>
 
                   {/* Card Title */}
-                  <h3 className="text-2xl font-black tracking-wide leading-snug mb-3">
+                  <h3 className="mb-3 text-2xl font-black leading-snug tracking-wide text-midnight_text dark:text-white">
                     {item.title}
                   </h3>
 
@@ -99,15 +100,15 @@ export default function SoftwareSolutions() {
                   <div className={`w-8 h-[3px] ${item.lineColor} rounded-full mb-6`} />
 
                   {/* Card Description */}
-                  <p className="text-slate-400 text-sm leading-relaxed mb-8 font-medium">
+                  <p className="mb-8 text-sm font-medium leading-relaxed text-secondary dark:text-slate-300">
                     {item.description}
                   </p>
                 </div>
 
                 {/* Footnote Stats Box */}
-                <div className="mt-auto bg-[#111726]/40 border border-slate-900/60 rounded-xl py-3.5 px-4 flex items-center space-x-3 transition-colors duration-350 group-hover:bg-[#151d30]/60">
+                <div className="mt-auto flex items-center space-x-3 rounded-xl border border-slate-200 bg-white/70 px-4 py-3.5 transition-colors duration-300 group-hover:bg-white dark:border-slate-800 dark:bg-[#111726]/40 dark:group-hover:bg-[#151d30]/60">
                   <StatsIcon className={`w-5 h-5 ${item.iconColor.split(' ')[0]}`} />
-                  <span className="text-xs font-bold text-slate-300 tracking-wide">
+                  <span className="text-xs font-bold tracking-wide text-slate-700 dark:text-slate-300">
                     {item.stats.text}
                   </span>
                 </div>

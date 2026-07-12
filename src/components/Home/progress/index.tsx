@@ -45,7 +45,7 @@ const ProgressWork = ({ isColorMode }: ProgressWorkProps) => {
               <span>Capability System</span>
             </div>
 
-            <h2 className="py-8 text-3xl font-extrabold tracking-tight text-white sm:text-5xl sm:leading-[1.15]">
+            <h2 className="py-8 text-3xl font-extrabold tracking-tight text-midnight_text dark:text-white sm:text-5xl sm:leading-[1.15]">
   End-to-end solution for your {" "}
   <span className="bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text font-black text-transparent">
     Business.

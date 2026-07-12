@@ -43,8 +43,6 @@ const Header: React.FC = () => {
     };
   }, [navbarOpen]);
 
-  const path = usePathname();
-
   useEffect(() => {
     if (navbarOpen) {
       document.body.style.overflow = "hidden";
@@ -113,7 +111,14 @@ const Header: React.FC = () => {
           </button>
         </div>
       </div>
-      {navbarOpen && <div className="fixed left-0 top-0 z-40 h-full w-full bg-slate-950/60 backdrop-blur-sm" />}
+      {navbarOpen && (
+        <button
+          type="button"
+          aria-label="Close mobile menu overlay"
+          className="fixed left-0 top-0 z-40 h-full w-full bg-slate-950/60 backdrop-blur-sm"
+          onClick={() => setNavbarOpen(false)}
+        />
+      )}
 
       <div
         ref={mobileMenuRef}
@@ -147,9 +152,13 @@ const Header: React.FC = () => {
             </svg>
           </button>
         </div>
-        <nav className="flex flex-col items-start gap-2 p-5">
+        <nav className="flex max-h-[calc(100vh-86px)] flex-col items-start gap-2 overflow-y-auto p-5">
           {headerData.map((item, index) => (
-            <MobileHeaderLink key={index} item={item} />
+            <MobileHeaderLink
+              key={index}
+              item={item}
+              onNavigate={() => setNavbarOpen(false)}
+            />
           ))}
           <div className="mt-5 flex w-full flex-col gap-3">
             <Link

@@ -1,7 +1,7 @@
 import React from "react";
 import { count } from "@/data/siteData";
 import Image from "next/image";
-import CountUp from "react-countup";
+
 const Counter = ({ isColorMode }: { isColorMode: boolean }) => {
   return (
     <section

@@ -25,7 +25,7 @@ const ContactForm = () => {
               <div className='glass-card relative overflow-hidden rounded-[2rem] px-6 py-8 sm:px-9'>
                 <div className='pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(139,92,246,0.20),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(34,211,238,0.14),transparent_32%)]' />
                 <div className='relative'>
-              <div className='mb-7 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/10 text-Sky-blue-mist shadow-[0_18px_45px_rgba(34,211,238,0.12)]'>
+              <div className='mb-7 flex h-14 w-14 items-center justify-center rounded-2xl border border-slate-950/10 bg-white/70 text-Sky-blue-mist shadow-[0_18px_45px_rgba(34,211,238,0.12)] dark:border-white/10 dark:bg-white/10'>
                 <MessageCircle className='h-7 w-7' />
               </div>
               <h2 className='mb-3 text-3xl font-black leading-tight text-midnight_text dark:text-white sm:text-4xl'>
@@ -46,7 +46,7 @@ const ContactForm = () => {
                 </a>
                 <a
                   href={`mailto:${email}`}
-                  className='flex w-full items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/10 px-5 py-4 font-bold text-midnight_text backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-Sky-blue-mist/40 hover:bg-white/15 hover:text-primary dark:text-white dark:hover:text-Sky-blue-mist'
+                  className='flex w-full items-center justify-center gap-2 rounded-2xl border border-slate-950/10 bg-white/70 px-5 py-4 font-bold text-midnight_text backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-Sky-blue-mist/40 hover:bg-white hover:text-primary dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/15 dark:hover:text-Sky-blue-mist'
                 >
                   Send Email
                   <Send className='h-5 w-5' />
@@ -57,7 +57,7 @@ const ContactForm = () => {
                 {checklist.map((item) => (
                   <div
                     key={item}
-                    className='flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm font-semibold text-secondary transition-all duration-300 hover:border-primary/30 hover:bg-white/10 dark:text-white/75'
+                    className='flex items-center gap-3 rounded-2xl border border-slate-950/10 bg-white/60 px-4 py-3 text-sm font-semibold text-secondary transition-all duration-300 hover:border-primary/30 hover:bg-white dark:border-white/10 dark:bg-white/[0.06] dark:text-white/75 dark:hover:bg-white/10'
                   >
                     <CheckCircle2 className='h-5 w-5 text-success' />
                     {item}
@@ -65,7 +65,7 @@ const ContactForm = () => {
                 ))}
               </div>
 
-              <p className='mt-7 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-secondary dark:text-white/55'>
+              <p className='mt-7 inline-flex items-center gap-2 rounded-full border border-slate-950/10 bg-white/60 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-secondary dark:border-white/10 dark:bg-white/[0.06] dark:text-white/55'>
                 <span className='h-2 w-2 rounded-full bg-success' />
                 Usually replies within 24 hours
               </p>

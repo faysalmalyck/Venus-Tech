@@ -25,7 +25,7 @@ const page = () => {
       />
 
       {/* Core Values Section matching default application container shell */}
-      <section className="premium-shell premium-mesh relative overflow-hidden py-20 lg:py-28 text-white">
+      <section className="premium-shell premium-mesh relative overflow-hidden py-20 lg:py-28">
         {/* Ambient Aura matches Hero alignment */}
         <div className="pointer-events-none absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-primary/5 blur-[100px]" />
         <div className="pointer-events-none absolute top-12 left-10 h-72 w-72 rounded-full bg-cyan-500/5 blur-[120px]" />
@@ -49,12 +49,12 @@ const page = () => {
               return (
                 <article
                   key={value.title}
-                  className="glass-card group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-6 lg:p-8 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1.5 hover:border-white/15 hover:bg-white/[0.04]"
+                  className="glass-card group relative overflow-hidden rounded-2xl p-6 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1.5 hover:border-primary/25 hover:bg-white/90 dark:hover:border-white/15 dark:hover:bg-white/[0.08] lg:p-8"
                 >
                   <div className="flex flex-col h-full justify-between relative z-10">
                     <div>
                       {/* Icon Base */}
-                      <div className={`mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-white/[0.03] ${value.color} border border-white/5 transition-transform duration-500 group-hover:scale-110 group-hover:border-white/10`}>
+                      <div className={`mb-6 flex h-12 w-12 items-center justify-center rounded-xl border border-slate-950/10 bg-white/70 ${value.color} transition-transform duration-500 group-hover:scale-110 group-hover:border-primary/20 dark:border-white/5 dark:bg-white/[0.03] dark:group-hover:border-white/10`}>
                         <IconComponent className="h-5 w-5" />
                       </div>
 
@@ -62,13 +62,13 @@ const page = () => {
                       <h3 className="text-xl font-bold text-midnight_text dark:text-white tracking-tight group-hover:text-cyan-400 transition-colors duration-300">
                         {value.title}
                       </h3>
-                      <p className="mt-3 text-sm leading-relaxed text-secondary dark:text-white/60 group-hover:text-white/80 transition-colors duration-300">
+                      <p className="mt-3 text-sm leading-relaxed text-secondary transition-colors duration-300 group-hover:text-slate-700 dark:text-white/60 dark:group-hover:text-white/80">
                         {value.description}
                       </p>
                     </div>
 
                     {/* Bottom Architectural Accent Line */}
-                    <div className="mt-8 h-px w-8 bg-white/10 transition-all duration-500 group-hover:w-full group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-primary" />
+                    <div className="mt-8 h-px w-8 bg-slate-950/10 transition-all duration-500 group-hover:w-full group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-primary dark:bg-white/10" />
                   </div>
                 </article>
               );

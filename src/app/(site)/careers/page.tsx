@@ -149,15 +149,15 @@ export default function CareersPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-darkmode">
+      <section className="relative overflow-hidden bg-section dark:bg-darkmode">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(139,92,246,0.24),transparent_28rem),radial-gradient(circle_at_75%_60%,rgba(34,211,238,0.14),transparent_26rem)]" />
         <div className="container relative mx-auto max-w-4xl px-4 text-center">
           <div className="glass-card rounded-[2rem] px-6 py-10 sm:px-10 sm:py-12">
             <CheckCircle2 className="mx-auto mb-6 h-12 w-12 text-success" />
-            <h2 className="text-3xl font-black text-white sm:text-4xl">
+            <h2 className="text-3xl font-black text-midnight_text dark:text-white sm:text-4xl">
               Think you can build with us?
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/65">
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-secondary dark:text-white/65">
               Send your CV and a short note about the kind of work you want to
               do at Vertex.
             </p>

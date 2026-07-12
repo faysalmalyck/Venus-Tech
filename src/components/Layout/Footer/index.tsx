@@ -14,7 +14,7 @@ const Footer: FC = () => {
   ]
 
   return (
-    <footer className="relative z-1 overflow-hidden border-t border-white/10 bg-darkmode px-6 font-sans">
+    <footer className="relative z-1 overflow-hidden border-t border-white/10 bg-darkmode px-4 font-sans sm:px-6">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(139,92,246,0.24),transparent_28rem),radial-gradient(circle_at_90%_80%,rgba(34,211,238,0.12),transparent_24rem)]" />
       <div className="container relative mx-auto max-w-6xl px-4">
         <div className="grid grid-cols-1 md:grid-cols-12 lg:gap-8">
@@ -130,16 +130,16 @@ const Footer: FC = () => {
               <p className="text-white/50 text-sm pb-6 leading-relaxed">
                 To be updated with all the latest trends and product releases.
               </p>
-              <form className="w-full flex bg-white/8 border border-white/10 rounded-full p-1.5 focus-within:border-primary/60 focus-within:ring-2 focus-within:ring-primary/20 transition-all duration-300">
+              <form className="flex w-full flex-col gap-2 rounded-3xl border border-white/10 bg-white/8 p-1.5 transition-all duration-300 focus-within:border-primary/60 focus-within:ring-2 focus-within:ring-primary/20 sm:flex-row sm:rounded-full">
                 <input
                   type="email"
                   placeholder="Email address*"
                   required
-                  className="px-4 py-2.5 text-sm bg-transparent border-none text-white outline-none w-full placeholder-white/30"
+                  className="min-w-0 w-full border-none bg-transparent px-4 py-2.5 text-sm text-white outline-none placeholder-white/30"
                 />
                 <button
                   type="submit"
-                  className="px-6 py-2.5 text-sm font-bold bg-gradient-to-r from-primary to-Sky-blue-mist text-white rounded-full transition-all duration-200 hover:shadow-[0_14px_36px_rgba(34,211,238,0.24)] shrink-0">
+                  className="shrink-0 rounded-full bg-gradient-to-r from-primary to-Sky-blue-mist px-6 py-2.5 text-sm font-bold text-white transition-all duration-200 hover:shadow-[0_14px_36px_rgba(34,211,238,0.24)]">
                   Subscribe
                 </button>
               </form>

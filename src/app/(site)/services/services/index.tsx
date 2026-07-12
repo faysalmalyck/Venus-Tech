@@ -11,6 +11,13 @@ import {
 } from 'lucide-react'
 
 const Services = () => {
+  const slugify = (value: string) =>
+    value
+      .toLowerCase()
+      .replace(/&/g, "and")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "");
+
   const servicesList = [
     {
       title: "Web Development",
@@ -87,6 +94,7 @@ const Services = () => {
             return (
               <div
                 key={index}
+                id={slugify(item.title)}
                 data-aos="fade-up"
                 data-aos-delay={index * 150}
                 data-aos-duration="1000"

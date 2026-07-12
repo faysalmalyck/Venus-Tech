@@ -3,21 +3,25 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import SocialSignUp from "../SocialSignUp";
 import Logo from "@/components/Layout/Header/Logo"
-import { useContext, useState } from "react";
+import { useContext, useState, type FormEvent } from "react";
 import Loader from "@/components/Common/Loader";
 import AuthDialogContext from "@/app/context/AuthDialogContext";
-const SignUp = ({signUpOpen}:{signUpOpen?:any}) => {
+interface SignUpProps {
+  signUpOpen?: (open: boolean) => void;
+}
+
+const SignUp = ({signUpOpen}: SignUpProps) => {
   const [loading, setLoading] = useState(false);
   const authDialog = useContext(AuthDialogContext);
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setLoading(true);
     toast.success("Registration is disabled for now");
     setLoading(false);
     setTimeout(() => {
-      signUpOpen(false);
+      signUpOpen?.(false);
     }, 1200);
     authDialog?.setIsUserRegistered(true);
 
