@@ -1,6 +1,113 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { count } from "@/data/siteData";
 import Image from "next/image";
+
+const parseCounterValue = (value: string) => {
+  const match = value.trim().match(/^([^0-9.-]*)([0-9]+(?:\.[0-9]+)?)(.*)$/);
+
+  if (!match) {
+    return {
+      prefix: "",
+      target: 0,
+      suffix: value,
+      decimals: 0,
+    };
+  }
+
+  const [, prefix, numericValue, suffix] = match;
+
+  return {
+    prefix,
+    target: Number(numericValue),
+    suffix,
+    decimals: numericValue.includes(".") ? numericValue.split(".")[1].length : 0,
+  };
+};
+
+const AnimatedMetric = ({
+  value,
+  delay = 0,
+}: {
+  value: string;
+  delay?: number;
+}) => {
+  const metricRef = useRef<HTMLSpanElement | null>(null);
+  const [hasStarted, setHasStarted] = useState(false);
+  const [currentValue, setCurrentValue] = useState(0);
+  const parsedValue = useMemo(() => parseCounterValue(value), [value]);
+
+  useEffect(() => {
+    const element = metricRef.current;
+
+    if (!element) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) {
+      setCurrentValue(parsedValue.target);
+      setHasStarted(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasStarted(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.45 }
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, [parsedValue.target]);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+
+    let animationFrame = 0;
+    let timeoutId: ReturnType<typeof setTimeout>;
+    const duration = 1700;
+
+    timeoutId = setTimeout(() => {
+      const startedAt = performance.now();
+
+      const animate = (timestamp: number) => {
+        const progress = Math.min((timestamp - startedAt) / duration, 1);
+        const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+        setCurrentValue(parsedValue.target * easedProgress);
+
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(animate);
+        } else {
+          setCurrentValue(parsedValue.target);
+        }
+      };
+
+      animationFrame = requestAnimationFrame(animate);
+    }, delay);
+
+    return () => {
+      clearTimeout(timeoutId);
+      cancelAnimationFrame(animationFrame);
+    };
+  }, [delay, hasStarted, parsedValue.target]);
+
+  return (
+    <span ref={metricRef} aria-label={value}>
+      {parsedValue.prefix}
+      {currentValue.toFixed(parsedValue.decimals)}
+      {parsedValue.suffix}
+    </span>
+  );
+};
 
 const Counter = ({ isColorMode }: { isColorMode: boolean }) => {
   return (
@@ -58,8 +165,7 @@ const Counter = ({ isColorMode }: { isColorMode: boolean }) => {
 
                 {/* Counter */}
                 <span className="text-3xl font-black tracking-tight text-midnight_text transition-colors duration-500 group-hover:text-primary dark:text-white">
-                  {item.value}
-                
+                  <AnimatedMetric value={item.value} delay={index * 120} />
                 </span>
 
                 {/* Description */}

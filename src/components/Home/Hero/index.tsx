@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, CheckCircle2, Sparkles, Terminal, Activity } from 'lucide-react'
@@ -16,6 +16,106 @@ const terminalLines = [
   'INFRA: Database replication scale complete.',
   'SYSTEM: All microservices operating within peak thresholds.'
 ]
+
+const heroMetrics = [
+  ['$32M+', 'SaaS Value'],
+  ['99.9%', 'Uptime'],
+  ['4.9/5', 'Rating'],
+]
+
+const parseMetricValue = (value: string) => {
+  const match = value.trim().match(/^([^0-9.-]*)([0-9]+(?:\.[0-9]+)?)(.*)$/)
+
+  if (!match) {
+    return { prefix: '', target: 0, suffix: value, decimals: 0 }
+  }
+
+  const [, prefix, numericValue, suffix] = match
+
+  return {
+    prefix,
+    target: Number(numericValue),
+    suffix,
+    decimals: numericValue.includes('.') ? numericValue.split('.')[1].length : 0,
+  }
+}
+
+const AnimatedMetric = ({ value, delay = 0 }: { value: string; delay?: number }) => {
+  const metricRef = useRef<HTMLSpanElement | null>(null)
+  const [hasStarted, setHasStarted] = useState(false)
+  const [currentValue, setCurrentValue] = useState(0)
+  const parsedValue = useMemo(() => parseMetricValue(value), [value])
+
+  useEffect(() => {
+    const element = metricRef.current
+
+    if (!element) return
+
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches
+
+    if (prefersReducedMotion) {
+      setCurrentValue(parsedValue.target)
+      setHasStarted(true)
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasStarted(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.65 }
+    )
+
+    observer.observe(element)
+
+    return () => observer.disconnect()
+  }, [parsedValue.target])
+
+  useEffect(() => {
+    if (!hasStarted) return
+
+    let animationFrame = 0
+    let timeoutId: ReturnType<typeof setTimeout>
+    const duration = 1600
+
+    timeoutId = setTimeout(() => {
+      const startedAt = performance.now()
+
+      const animate = (timestamp: number) => {
+        const progress = Math.min((timestamp - startedAt) / duration, 1)
+        const easedProgress = 1 - Math.pow(1 - progress, 3)
+
+        setCurrentValue(parsedValue.target * easedProgress)
+
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(animate)
+        } else {
+          setCurrentValue(parsedValue.target)
+        }
+      }
+
+      animationFrame = requestAnimationFrame(animate)
+    }, delay)
+
+    return () => {
+      clearTimeout(timeoutId)
+      cancelAnimationFrame(animationFrame)
+    }
+  }, [delay, hasStarted, parsedValue.target])
+
+  return (
+    <span ref={metricRef} aria-label={value}>
+      {parsedValue.prefix}
+      {currentValue.toFixed(parsedValue.decimals)}
+      {parsedValue.suffix}
+    </span>
+  )
+}
 
 const Hero = () => {
   const [visibleLines, setVisibleLines] = useState<string[]>([])
@@ -169,13 +269,11 @@ const Hero = () => {
 
             {/* Performance Analytics Metric Banner Overlay */}
             <div className='mt-6 w-full max-w-[440px] grid grid-cols-3 gap-2 rounded-2xl border border-white/10 bg-[#070A12]/90 p-4 text-center shadow-2xl backdrop-blur-xl z-20'>
-              {[
-                ['$32M+', 'SaaS Value'],
-                ['99.9%', 'Uptime'],
-                ['4.9/5', 'Rating'],
-              ].map(([value, label]) => (
+              {heroMetrics.map(([value, label], index) => (
                 <div key={label} className='space-y-0.5 border-r border-white/5 last:border-0'>
-                  <p className='text-sm font-black tracking-tight text-white sm:text-lg'>{value}</p>
+                  <p className='text-sm font-black tracking-tight text-white sm:text-lg'>
+                    <AnimatedMetric value={value} delay={index * 140} />
+                  </p>
                   <p className='text-[9px] font-bold uppercase tracking-widest text-secondary dark:text-white/40'>{label}</p>
                 </div>
               ))}
