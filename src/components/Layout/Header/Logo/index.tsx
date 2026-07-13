@@ -27,8 +27,8 @@ const Logo: React.FC = () => {
       <Image
         src={logoSrc}
         alt="Vertex logo"
-        width={120}
-        height={28}
+        width={90}
+        height={20}
         quality={100}
         priority
         className="h-8 w-auto transition-all duration-300 ease-in-out hover:scale-105 hover:brightness-110 sm:h-9"

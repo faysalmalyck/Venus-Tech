@@ -52,8 +52,8 @@ const Contactform = () => {
       <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-violet-500/10 text-violet-400 border border-violet-500/20 group-hover:scale-110 transition-transform duration-300">
         <Phone className="h-5 w-5" />
       </div>
-      <span className="block text-xs font-medium uppercase tracking-wider text-secondary dark:text-white/40">Phone</span>
-      <p className="mt-1 text-base font-medium text-midnight_text dark:text-white">
+      <span className="block text-xs font-medium uppercase  text-secondary dark:text-white/40">Phone</span>
+      <p className="mt-1 text-base font-medium text-midnight_text dark:text-white/40">
         +92-305-5552772
       </p>
     </div>
@@ -63,8 +63,8 @@ const Contactform = () => {
       <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 group-hover:scale-110 transition-transform duration-300">
         <Mail className="h-5 w-5" />
       </div>
-      <span className="block text-xs font-medium uppercase tracking-wider text-secondary dark:text-white/40">Email</span>
-      <p className="mt-1 break-all text-base font-medium text-midnight_text dark:text-white">
+      <span className="block text-xs font-medium uppercase  text-secondary dark:text-white/40">Email</span>
+      <p className="mt-1 break-all text-base font-medium text-midnight_text dark:text-white/40">
         faysal.malick@icloud.com
       </p>
     </div>
@@ -74,8 +74,8 @@ const Contactform = () => {
       <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 group-hover:scale-110 transition-transform duration-300">
         <MapPin className="h-5 w-5" />
       </div>
-      <span className="block text-xs font-medium uppercase tracking-wider text-secondary dark:text-white/40">Address</span>
-      <p className="mt-1 text-base font-medium leading-relaxed text-midnight_text dark:text-white">
+      <span className="block text-xs font-medium uppercase text-secondary dark:text-white/40">Address</span>
+      <p className="mt-1 text-base font-medium leading-relaxed text-midnight_text dark:text-white/40">
         Office No. 194-A, Street No. 7, Sector I-10/3, Islamabad 44000, Pakistan
       </p>
     </div>
