@@ -30,9 +30,9 @@ export const metadata: Metadata = {
     siteName: "Vertex",
     images: [
       {
-        url: "/images/brand/vertex-preview.jpg",
-        width: 1360,
-        height: 648,
+        url: "/images/brand/vertex-preview.png",
+        width: 1536,
+        height: 1024,
         alt: "Vertex logo",
       },
     ],
