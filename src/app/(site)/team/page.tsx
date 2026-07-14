@@ -54,7 +54,7 @@ const salesMembers = [
     name: "Arshad Nazir",
     role: "General Manager",
     description:
-      "is responsible for leading the entire sales function of an organization. Typical responsibilities.",
+      "Developing and executing sales strategies esponsible for leading the entire sales function of an organization. Typical responsibilities.",
     image: "/images/hero/Arshad.jpg",
   },
   {
