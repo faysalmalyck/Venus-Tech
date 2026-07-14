@@ -8,6 +8,7 @@ import ScrollToTop from '@/components/ScrollToTop';
 import Aoscompo from "@/utils/aos";
 import NextTopLoader from 'nextjs-toploader';
 import { AuthDialogProvider } from "./context/AuthDialogContext";
+import IntroAnimation from "@/components/Common/IntroAnimation";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -54,6 +55,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-white dark:bg-darkmode" suppressHydrationWarning>
+      <head>
+        <script
+          id="vertex-intro-state"
+          dangerouslySetInnerHTML={{
+            __html: `
+            try {
+              document.documentElement.dataset.vertexIntro =
+                window.localStorage.getItem("vertex-intro-seen-v1") === "true"
+                  ? "seen"
+                  : "show";
+            } catch (error) {
+              document.documentElement.dataset.vertexIntro = "seen";
+            }
+          `,
+          }}
+        />
+      </head>
       <body className={inter.className}>
       <NextTopLoader />
       <AuthDialogProvider>
@@ -64,6 +82,7 @@ export default function RootLayout({
           enableColorScheme
           disableTransitionOnChange
         >
+          <IntroAnimation />
           <Aoscompo>
             <Header />
             {children}
