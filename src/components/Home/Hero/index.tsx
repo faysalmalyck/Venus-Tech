@@ -51,14 +51,12 @@ const AnimatedMetric = ({ value, delay = 0, isMobile = false }: { value: string;
 
     if (!element) return
 
-    // On mobile, bypass observer completely and show the final numbers immediately
     if (isMobile || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setCurrentValue(parsedValue.target)
       setHasStarted(true)
       return
     }
 
-    // Lower threshold to 0.1 so it triggers immediately when even slightly visible
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -79,7 +77,9 @@ const AnimatedMetric = ({ value, delay = 0, isMobile = false }: { value: string;
 
     let animationFrame = 0
     let timeoutId: ReturnType<typeof setTimeout>
-    const duration = 1600
+    
+    // Increased duration from 1600ms to 3200ms to slow down the count speed significantly
+    const duration = 3200
 
     timeoutId = setTimeout(() => {
       const startedAt = performance.now()
@@ -126,7 +126,6 @@ const Hero = () => {
     const mobileCheck = window.innerWidth < 768
     setIsMobile(mobileCheck)
 
-    // Instantly load the first 3 lines on mount so the terminal is never blank
     setVisibleLines(terminalLines.slice(0, 3))
     setActiveIndex(3)
   }, [])
@@ -149,17 +148,14 @@ const Hero = () => {
 
   return (
     <section className='premium-shell premium-mesh relative overflow-hidden pb-24 pt-28 text-white sm:pt-36 md:pb-32 md:pt-48'>
-      {/* Background Lighting Elements */}
       <div className='pointer-events-none absolute top-1/4 left-1/4 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-primary/10 blur-[130px]' />
       <div className='pointer-events-none absolute right-5 top-1/4 h-[500px] w-[500px] rounded-full bg-cyan-500/10 blur-[120px]' />
       
-      {/* Micro Laser Grid Sub-Layer */}
       <div className='pointer-events-none absolute inset-x-0 top-32 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent' />
 
       <div className='container relative z-10 mx-auto max-w-6xl px-4'>
         <div className='grid grid-cols-12 gap-y-16 md:gap-x-8 lg:gap-x-16 items-center'>
           
-          {/* Left Block: Core Value Proposition */}
           <div className='col-span-12 md:col-span-7 lg:col-span-6 space-y-6 md:space-y-8 flex flex-col items-start justify-center'>
             <div className='premium-badge flex items-center gap-2 px-3 py-1.5 text-[11px] font-medium tracking-wide border border-white/10 bg-white/[0.03] backdrop-blur-md rounded-full text-white/90'>
               <Sparkles className='h-3.5 w-3.5 text-cyan-400 animate-pulse' />
@@ -212,16 +208,12 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Block: Interactive Live Terminal Simulator */}
           <div className='col-span-12 md:col-span-5 lg:col-span-6 relative flex flex-col items-center justify-center'>
             
-            {/* Ambient Background Aura */}
             <div className='absolute h-72 w-72 rounded-full bg-cyan-400/10 blur-[90px] animate-pulse' />
             
-            {/* The Glass Code Console Window */}
             <div className='w-full max-w-[440px] rounded-2xl border border-white/10 bg-[#070A12]/90 p-5 shadow-[0_40px_80px_-15px_rgba(0,0,0,0.8)] backdrop-blur-md overflow-hidden min-h-[310px] flex flex-col justify-between group hover:border-primary/30 transition-colors duration-500'>
               
-              {/* Window Controls Decorator */}
               <div className='flex items-center justify-between pb-4 border-b border-white/5'>
                 <div className='flex items-center gap-2'>
                   <span className='h-3 w-3 rounded-full bg-rose-500/40 group-hover:bg-rose-500/80 transition-colors duration-300' />
@@ -234,7 +226,6 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* Dynamic Console Feed */}
               <div className='font-mono text-xs space-y-2.5 py-4 flex-grow min-h-[160px] flex flex-col justify-end'>
                 {!mounted ? (
                   <p className='text-white/30 animate-pulse'>Awaiting runtime logs...</p>
@@ -254,14 +245,12 @@ const Hero = () => {
                     )
                   })
                 )}
-                {/* Active Typing Cursor Simulator */}
                 <div className='flex items-center gap-1 text-white/40'>
                   <span className='text-white/30'>&gt;</span>
                   <span className='h-3.5 w-2 bg-cyan-400 animate-[blink_1s_infinite]' />
                 </div>
               </div>
 
-              {/* Console Footprint Dashboard Meta */}
               <div className='pt-3 border-t border-white/5 flex items-center justify-between font-mono text-[10px] text-white/40'>
                 <div className='flex items-center gap-1.5'>
                   <Activity className='h-3.5 w-3.5 text-emerald-400 animate-pulse' />
@@ -272,7 +261,6 @@ const Hero = () => {
 
             </div>
 
-            {/* Performance Analytics Metric Banner Overlay */}
             <div className='mt-6 w-full max-w-[440px] grid grid-cols-3 gap-2 rounded-2xl border border-white/10 bg-[#070A12]/90 p-4 text-center shadow-2xl backdrop-blur-xl z-20'>
               {heroMetrics.map(([value, label], index) => (
                 <div key={label} className='space-y-0.5 border-r border-white/5 last:border-0'>

@@ -46,11 +46,11 @@ const ProgressWork = ({ isColorMode }: ProgressWorkProps) => {
             </div>
 
             <h2 className="py-8 text-3xl font-extrabold tracking-tight text-midnight_text dark:text-white sm:text-5xl sm:leading-[1.15]">
-  End-to-end solution for your {" "}
-  <span className="bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text font-black text-transparent">
-    Business.
-  </span>
-</h2>
+              End-to-end solution for your {" "}
+              <span className="bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text font-black text-transparent">
+                Business.
+              </span>
+            </h2>
 
             <p className="premium-copy text-left text-lg leading-relaxed text-gray-600 dark:text-white/60 max-w-2xl">
               Every solution we deliver is engineered for precision performance, predictable scalability, and intuitive interface layouts, enabling growth engines to scale metrics systematically.
@@ -60,12 +60,12 @@ const ProgressWork = ({ isColorMode }: ProgressWorkProps) => {
               {progressValues.map((item, index) => (
                 <div
                   key={item.title}
-                  data-aos="fade-up"
-                  data-aos-delay={index * 100}
+                  data-aos="fade-in"
+                  data-aos-duration="600"
                   className="group"
                 >
-                  <div className="glass-card relative overflow-hidden rounded-2xl border border-white/10 px-6 py-5 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-primary/25 hover:shadow-[0_20px_50px_rgba(59,130,246,0.08)]">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <div className="glass-card relative overflow-hidden rounded-2xl border border-white/10 px-6 py-5 transition-all duration-300 ease-out hover:border-primary/25 hover:shadow-[0_20px_50px_rgba(59,130,246,0.08)]">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                     <div className="relative z-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                       
@@ -84,11 +84,11 @@ const ProgressWork = ({ isColorMode }: ProgressWorkProps) => {
 
                       <div className="relative h-2.5 w-full rounded-full bg-slate-100 sm:w-48 lg:w-56 dark:bg-slate-900/60 ring-1 ring-inset ring-black/5 dark:ring-white/5">
                         <div
-                          className="relative h-full rounded-full bg-gradient-to-r from-primary via-Sky-blue-mist to-success transition-all duration-[1200ms] cubic-bezier(0.22,1,0.36,1)"
+                          className="relative h-full rounded-full bg-gradient-to-r from-primary via-Sky-blue-mist to-success transition-[width] duration-700 ease-out will-change-[width]"
                           style={{ width: `${item.Progress}%` }}
                         >
                           <div className="absolute inset-0 overflow-hidden rounded-full">
-                            <div className="absolute -left-full h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-[shine_3s_ease-in-out_infinite]" />
+                            <div className="absolute -left-full h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-50 [transform:translateZ(0)]" />
                           </div>
                           <div className="absolute inset-x-0 top-0 h-[1px] bg-white/30" />
                         </div>
@@ -116,7 +116,7 @@ const ProgressWork = ({ isColorMode }: ProgressWorkProps) => {
                     height={520}
                     quality={100}
                     style={{ width: '100%', height: 'auto' }}
-                    className="relative z-10 transform transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.03]"
+                    className="relative z-10 transform transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
                 </div>
 
