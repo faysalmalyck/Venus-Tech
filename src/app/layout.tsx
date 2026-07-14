@@ -53,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="bg-white dark:bg-darkmode" suppressHydrationWarning>
       <body className={inter.className}>
       <NextTopLoader />
       <AuthDialogProvider>
@@ -61,6 +61,8 @@ export default function RootLayout({
           attribute="class"
           enableSystem={true}
           defaultTheme="system"
+          enableColorScheme
+          disableTransitionOnChange
         >
           <Aoscompo>
             <Header />

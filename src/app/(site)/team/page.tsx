@@ -153,8 +153,8 @@ export default function TeamPage() {
 
           {/* 2. Engineering Division */}
           <div className="relative mb-12 flex items-center justify-center">
-            <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-            <span className="absolute bg-[#070A12] px-4 text-xs font-semibold tracking-widest text-white/30 uppercase">
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-950/15 to-transparent dark:via-white/10" />
+            <span className="absolute rounded-full border border-slate-950/10 bg-white/80 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-slate-700 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-[#070A12]/80 dark:text-white/60">
               Engineering Division
             </span>
           </div>
@@ -215,8 +215,8 @@ export default function TeamPage() {
 
           {/* 3. Sales & Growth Division */}
           <div className="relative mb-12 flex items-center justify-center">
-            <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-            <span className="absolute bg-[#070A12] px-4 text-xs font-semibold tracking-widest text-white/30 uppercase">
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-950/15 to-transparent dark:via-white/10" />
+            <span className="absolute rounded-full border border-slate-950/10 bg-white/80 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-slate-700 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-[#070A12]/80 dark:text-white/60">
               Sales & Growth Division
             </span>
           </div>

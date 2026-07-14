@@ -42,7 +42,7 @@ const HeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
         }
       }}
     >
-      <Link href={item.href} className={`premium-link-line flex items-center gap-1 py-2 text-sm font-semibold text-slate-700 transition-colors duration-300 hover:text-primary dark:text-white/75 dark:hover:text-white ${isActive ? 'text-primary dark:text-white after:w-full' : ''}`}>
+      <Link href={item.href} className={`premium-link-line flex items-center gap-1 whitespace-nowrap py-2 text-sm font-semibold text-slate-700 transition-colors duration-300 hover:text-primary dark:text-white/75 dark:hover:text-white ${isActive ? 'text-primary dark:text-white after:w-full' : ''}`}>
         {item.label}
         {item.submenu && (
           <svg
@@ -59,10 +59,8 @@ const HeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
       {submenuOpen && (
         <div
           className="absolute left-1/2 top-full z-50 w-72 max-w-[calc(100vw-2rem)] -translate-x-1/2 pt-3"
-          data-aos="fade-up"
-          data-aos-duration="400"
         >
-          <div className="max-h-[70vh] overflow-y-auto rounded-3xl border border-slate-200/70 bg-white p-2 shadow-2xl shadow-slate-950/15 backdrop-blur-xl dark:border-white/10 dark:bg-darklight dark:shadow-dark-md">
+          <div className="max-h-[70vh] overflow-y-auto rounded-3xl border border-slate-200/70 bg-white p-2 shadow-2xl shadow-slate-950/15 backdrop-blur-xl transition-all duration-200 animate-reveal-up dark:border-white/10 dark:bg-darklight dark:shadow-dark-md">
             {item.submenu?.map((subItem, index) => (
               <Link
                 key={index}

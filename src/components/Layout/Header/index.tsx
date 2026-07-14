@@ -75,7 +75,7 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 w-full px-3 py-4 transition-all duration-500 ${
+      className={`fixed top-0 w-full px-2 py-3 transition-all duration-500 sm:px-4 sm:py-4 lg:px-6 ${
         navbarOpen ? "z-[1000]" : "z-50"
       } ${
         sticky
@@ -83,18 +83,18 @@ const Header: React.FC = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto flex max-w-6xl items-center justify-between rounded-full border border-slate-950/10 bg-white/75 px-4 py-3 shadow-[0_18px_70px_rgba(15,23,42,0.10)] backdrop-blur-2xl dark:border-white/[0.12] dark:bg-white/[0.06]">
+      <div className="mx-auto flex min-h-[60px] w-full max-w-[1180px] items-center justify-between gap-2 rounded-full border border-slate-950/10 bg-white/75 px-3 py-2.5 shadow-[0_18px_70px_rgba(15,23,42,0.10)] backdrop-blur-2xl sm:min-h-[68px] sm:px-4 lg:gap-4 lg:px-5 dark:border-white/[0.12] dark:bg-white/[0.06]">
         <Logo />
-        <nav className="hidden grow items-center justify-center gap-8 lg:flex">
+        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-5 lg:flex xl:gap-8">
           {headerData.map((item, index) => (
             <HeaderLink key={index} item={item} />
           ))}
         </nav>
-        <div className="flex items-center gap-4">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <button
             aria-label="Toggle theme"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200/80 bg-white/80 text-body-color shadow-sm duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:text-primary dark:border-white/10 dark:bg-white/10 dark:text-white"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/80 bg-white/80 text-body-color shadow-sm duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:text-primary sm:h-11 sm:w-11 dark:border-white/10 dark:bg-white/10 dark:text-white"
           >
             <svg
               viewBox="0 0 16 16"
@@ -118,13 +118,13 @@ const Header: React.FC = () => {
           </button>
           <Link
             href="/contact"
-            className="premium-gradient-button hidden rounded-full px-5 py-3 text-sm font-bold hover:-translate-y-0.5 lg:block"
+            className="premium-gradient-button hidden rounded-full px-4 py-3 text-sm font-bold hover:-translate-y-0.5 lg:inline-flex xl:px-5"
           >
             Contact us
           </Link>
           <button
             onClick={() => setNavbarOpen(!navbarOpen)}
-            className="block rounded-full border border-slate-200/80 bg-white/80 p-3 shadow-sm lg:hidden dark:border-white/10 dark:bg-white/10"
+            className="block rounded-full border border-slate-200/80 bg-white/80 p-2.5 shadow-sm sm:p-3 lg:hidden dark:border-white/10 dark:bg-white/10"
             aria-label="Toggle mobile menu"
           >
             <span className="block w-6 h-0.5 bg-black dark:bg-white"></span>
