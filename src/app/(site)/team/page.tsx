@@ -24,14 +24,14 @@ const engineeringMembers = [
     role: "CTO & Sr. Software Engineer",
     description:
       "Leading engineering teams to build secure, scalable, and high performance software..",
-    image: "/images/hero/hero-profile-1.jpg",
+    image: "/images/hero/barkat.jpg",
   },
   {
     name: "Raja Saad Raza",
     role: "IOS App Engineer",
     description:
       "Developing high performance iOS apps for every stage of growth.",
-    image: "/images/hero/hero-profile-2.jpg",
+    image: "/images/hero/saad.png",
   },
   {
     name: "Usama Ishaq",
@@ -56,7 +56,7 @@ const salesMembers = [
     role: "Account Executive",
     description:
       "Manages enterprise client success, product positioning, and strategic alignment.",
-    image: "/images/hero/hero-profile-3.jpg",
+    image: "/images/hero/afzal.png",
   },
 ];
 
